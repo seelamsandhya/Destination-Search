@@ -13,9 +13,9 @@ class DestinationSearch extends Component{
     render(){
         const {searchInput} = this.state
         const {destinationList} = this.props
-        const searchResults = destinationList.filter{eachDestination} =>
+        const searchResults = destinationList.filter(eachDestination =>
         eachDestination.name.toLowerCase().includes(searchInput.toLocaleLowerCase()),
-        }
+        )
         return (
             <div className="app-container">
             <div className="destinations-search-container">
@@ -28,14 +28,17 @@ class DestinationSearch extends Component{
 src="https://assets.ccbp.in/frontend/react-js/destinations-search-icon-img.png"  
 alt="search icon"
 className="search-icon" />
+</div>
 <ul className="destination-list">
 {searchResults.map(eachDestination=>{
+    <DestinationItem
     key={eachDestination.id}
     destinationDetails={eachDestination} />
 })}
 </ul>
 </div>
 </div>   
+
  )
 }
 }
